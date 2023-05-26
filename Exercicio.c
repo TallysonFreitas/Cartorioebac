@@ -118,51 +118,66 @@ int main(){
 	//variaveis
 	int opcao = 0;
 	int laco = 1;
+	char senhadigitada[10]="a";
+	int comparacao;
 	
-	//estrutura de repeticao
-	for(laco=1;laco=1;){
-		
-		system("cls"); //limpa a tela do cmd
-		
-		setlocale(LC_ALL,"Portuguese"); //define a linguagem 
-		
-		//menu
-		printf("### Cartorio da EBAC ### \n\n");
-		printf("Ëscolha a opcao desejada do menu:\n\n");
-		printf("\t1 - Registrar nomes\n");
-		printf("\t2 - Consultar nomes\n");
-		printf("\t3 - Deletar nomes\n");
-		printf("\t4 - Sair do menu\n\n");
-		printf("Opcao: ");
-		
-		scanf("%d", &opcao); //armazenando a escolha do usuario
-		
-		system("cls"); //limpa o cmd
-		
-		//estrutura de condicao
-	 	switch(opcao){
-		 	case 1:
-		 		registro(); //chamada de funcao para registrar um usuario
-		 		break;
-		 		
-		 	case 2:
-		 		consulta(); //chamada de funcao para consultar um usuario
-		 		break;
-		 		
-		 	case 3:
-		 		deletar(); //chamada de funcao para deletar um usuario
-		 		break;
-		 		
-		 	case 4:
-		 		printf("Obrigado por utilizar o sistema! ");
-		 		return 0;
-		 		break;
-		 		
-		 	default:
-		 		printf("Voce escolheu uma opcao invalida\n");
-		 		system("pause");
-		 		break;
-		 }
-	 }
+	printf("### Cartorio da EBAC ### \n\n");
+	printf("Login de administrador! \nDigite sua senha para ter acesso: \nSenha: ");
+	scanf("%s",senhadigitada);
 	
+	comparacao = strcmp(senhadigitada, "admin");
+	
+	if(comparacao == 0){
+		
+		system("cls");
+		
+		//estrutura de repeticao
+		for(laco=1;laco=1;){
+			
+			system("cls"); //limpa a tela do cmd
+			
+			setlocale(LC_ALL,"Portuguese"); //define a linguagem 
+			
+			//menu
+			printf("### Cartorio da EBAC ### \n\n");
+			printf("Ëscolha a opcao desejada do menu:\n\n");
+			printf("\t1 - Registrar nomes\n");
+			printf("\t2 - Consultar nomes\n");
+			printf("\t3 - Deletar nomes\n");
+			printf("\t4 - Sair do menu\n\n");
+			printf("Opcao: ");
+			
+			scanf("%d", &opcao); //armazenando a escolha do usuario
+			
+			system("cls"); //limpa o cmd
+			
+			//estrutura de condicao
+		 	switch(opcao){
+			 	case 1:
+			 		registro(); //chamada de funcao para registrar um usuario
+			 		break;
+			 		
+			 	case 2:
+			 		consulta(); //chamada de funcao para consultar um usuario
+			 		break;
+			 		
+			 	case 3:
+			 		deletar(); //chamada de funcao para deletar um usuario
+			 		break;
+			 		
+			 	case 4:
+			 		printf("Obrigado por utilizar o sistema! ");
+			 		return 0;
+			 		break;
+			 		
+			 	default:
+			 		printf("Voce escolheu uma opcao invalida\n");
+			 		system("pause");
+			 		break;
+			 }
+		 }	
+	}
+	
+	else
+		printf("\n*Senha Incorreta*\n");
 }
